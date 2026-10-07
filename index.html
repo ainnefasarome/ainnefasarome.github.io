@@ -1,0 +1,87 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Banghans — Hans Developer</title>
+<style>
+:root{--bg:#05060a;--fg:#e9ecf5;--mut:#8a91a8;--ac:#4f7cff}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,sans-serif;overflow-x:hidden}
+#intro{position:fixed;inset:0;z-index:99;background:var(--bg);display:grid;place-items:center;transition:opacity .8s}
+#intro.off{opacity:0;pointer-events:none}
+#g{position:absolute;inset:0;width:100%;height:100%}
+.it{position:relative;text-align:center;opacity:0;transform:translateY(20px);transition:all 1s}
+.it.on{opacity:1;transform:none}
+.it h1{font-size:clamp(3rem,15vw,8rem);letter-spacing:-.04em;line-height:1}
+.it p{font-style:italic;color:var(--mut);margin-top:8px}
+#skip{position:absolute;right:16px;bottom:16px;background:none;border:1px solid #333;color:var(--mut);padding:6px 14px;border-radius:99px}
+nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;padding:16px 22px;z-index:9;backdrop-filter:blur(8px);background:#05060acc}
+nav b{font-family:monospace}nav a{color:var(--mut);text-decoration:none;margin-left:14px;font-size:.9rem}
+section{min-height:100vh;padding:90px 22px 40px;max-width:1000px;margin:auto}
+#home{display:grid;gap:10px;align-items:center}
+@media(min-width:800px){#home{grid-template-columns:1.2fr 1fr}}
+h2.big{font-size:clamp(2.8rem,13vw,5.5rem);line-height:.95;letter-spacing:-.04em}
+h2.big span{color:#555}
+#role{color:var(--ac);font-family:monospace;min-height:1.7em;margin:14px 0}
+.mut{color:var(--mut)}
+#card{position:relative;height:440px;touch-action:pan-y}
+#lan{position:absolute;left:50%;top:0;width:220px;margin-left:-110px;transform-origin:50% 0;cursor:grab;touch-action:pan-y}
+#lan i{display:block;width:6px;height:110px;margin:0 auto;background:#222}
+#lan div{background:#f3f3f3;padding:10px 10px 36px;border-radius:12px;box-shadow:0 20px 50px #0009}
+#lan img{width:100%;height:260px;object-fit:cover;object-position:top;filter:grayscale(1) contrast(1.1);border-radius:6px;display:block;pointer-events:none}
+h3{font-size:2rem;margin-bottom:14px;letter-spacing:-.02em}
+.chips span{display:inline-block;border:1px solid #2a3150;color:var(--ac);padding:3px 12px;border-radius:99px;margin:4px 6px 0 0;font-size:.85rem}
+#pj{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin-top:20px}
+#pj a{display:block;padding:18px;border:1px solid #1d2238;border-radius:14px;color:inherit;text-decoration:none;background:#0a0d18}
+#pj a:hover{border-color:var(--ac)}#pj b{display:block}#pj small{color:var(--mut)}
+.btn{display:inline-block;margin:8px 10px 0 0;padding:10px 20px;border:1px solid var(--ac);border-radius:99px;color:var(--fg);text-decoration:none}
+footer{text-align:center;color:#555;padding:30px;font-size:.85rem}
+</style></head><body>
+<div id="intro"><canvas id="g"></canvas>
+<div class="it" id="it"><h1>Banghans.</h1><p>Hans Developer — make things that don't exist yet.</p></div>
+<button id="skip">Skip</button></div>
+<nav><b>hans.dev</b><div><a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div></nav>
+<section id="home"><div>
+<p class="mut">// AVAILABLE FOR NEW IDEAS</p>
+<h2 class="big">Banghans<br><span>Hans Developer</span></h2>
+<div id="role"></div>
+<p class="mut">Building applications, websites and experimental systems — curious by design.</p>
+<a class="btn" href="#projects">View projects ↓</a></div>
+<div id="card"><div id="lan"><i></i><div><img src="photo.png" alt="Banghans"></div></div></div></section>
+<section id="about"><h3>About</h3>
+<p class="mut">I'm a multidisciplinary developer who builds across the stack — applications, websites and the systems beneath them. Rather than specialising in a single niche, I follow curiosity: operating systems, OpenWrt-based networking, SSH-driven infrastructure and data security are all part of my toolbox.</p><br>
+<p class="mut">I enjoy turning unconventional ideas into working products, and I'm driven by one goal: creating things that don't exist yet, or that few people have thought to build.</p><br>
+<div class="chips"><span>App Development</span><span>Web Development</span><span>Operating Systems</span><span>OpenWrt</span><span>Networking</span><span>Data Security</span></div></section>
+<section id="projects"><h3>Projects</h3><p class="mut">Synced live from GitHub.</p><div id="pj"></div></section>
+<section id="contact"><h3>Let's build together</h3><p class="mut">Have an idea or a project in mind? Reach out.</p><br>
+<a class="btn" href="mailto:ainnefasarome@gmail.com">Email</a><a class="btn" href="https://t.me/ainnanefasarome">Telegram</a>
+<a class="btn" href="https://github.com/ainnanefasarome">GitHub</a></section>
+<footer>© Banghans — Hans Developer</footer>
+<script>
+// Intro: wireframe globe
+const $=id=>document.getElementById(id),c=$('g'),x=c.getContext('2d');let W,H,t=0,run=1;
+function rs(){W=c.width=innerWidth;H=c.height=innerHeight}rs();onresize=rs;
+function pt(la,lo,R){const X=Math.cos(la)*Math.sin(lo+t),Z=Math.cos(la)*Math.cos(lo+t);return[W/2+X*R,H*.45-Math.sin(la)*R,Z]}
+function globe(){if(!run)return;x.clearRect(0,0,W,H);t+=.007;const R=Math.min(W,H)*.3,f=new Path2D,b=new Path2D;
+const ln=(fn)=>{let p=fn(0);for(let i=1;i<=48;i++){const q=fn(i/48),s=(p[2]+q[2])>0?f:b;s.moveTo(p[0],p[1]);s.lineTo(q[0],q[1]);p=q}};
+for(let i=-5;i<=5;i++)ln(u=>pt(i*Math.PI/12,u*6.2832,R));
+for(let i=0;i<12;i++)ln(u=>pt(u*Math.PI-Math.PI/2,i*Math.PI/6,R));
+x.lineWidth=1;x.strokeStyle='#4f7cff25';x.stroke(b);x.strokeStyle='#7da0ffcc';x.stroke(f);requestAnimationFrame(globe)}
+globe();
+function done(){$('intro').classList.add('off');sessionStorage.seen=1;setTimeout(()=>run=0,900)}
+if(sessionStorage.seen){$('intro').style.display='none';run=0}else{setTimeout(()=>$('it').classList.add('on'),1200);setTimeout(done,5500)}
+$('skip').onclick=done;
+// Typing roles
+const R=['Developer','Programmer','App Developer','Web Developer','Explorer'];let ri=0,ci=0,del=0;
+(function ty(){const w=R[ri];ci+=del?-1:1;$('role').textContent='> '+w.slice(0,ci)+'_';let d=del?40:90;
+if(!del&&ci==w.length){del=1;d=1400}else if(del&&ci==0){del=0;ri=(ri+1)%R.length;d=400}setTimeout(ty,d)})();
+// Swinging ID card
+const L=$('lan'),C=$('card');let a=.6,v=0,d=0;
+(function s(){if(!d){v+=-a*.012;v*=.985;a+=v}L.style.transform='rotate('+a+'rad)';requestAnimationFrame(s)})();
+L.onpointerdown=e=>{d=1;L.setPointerCapture(e.pointerId)};
+L.onpointermove=e=>{if(!d)return;const r=C.getBoundingClientRect(),n=Math.max(-1.2,Math.min(1.2,Math.atan2(r.left+r.width/2-e.clientX,e.clientY-r.top)));v=n-a;a=n};
+L.onpointerup=L.onpointercancel=()=>d=0;
+// GitHub projects
+const U='ainnanefasarome';
+(async()=>{let j;try{j=await(await fetch('https://api.github.com/users/'+U+'/repos?sort=updated&per_page=30')).json();localStorage.pj=JSON.stringify(j)}catch(e){j=JSON.parse(localStorage.pj||'[]')}
+if(!Array.isArray(j)||!j.length){$('pj').innerHTML='<p class="mut">Projects will appear here.</p>';return}
+$('pj').innerHTML=j.filter(r=>!r.fork&&r.name!=U+'.github.io').map(r=>`<a href="${r.html_url}" target="_blank"><b>${r.name}</b><p class="mut">${r.description||'No description yet'}</p><small>${r.language||''} ${r.stargazers_count?'★ '+r.stargazers_count:''}</small></a>`).join('')})();
+</script></body></html>
