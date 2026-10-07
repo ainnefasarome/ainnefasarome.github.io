@@ -1,6 +1,20 @@
 {
- "experience":[{"when":"Ongoing","title":"Independent Developer","org":"Self-directed","pts":["Designing and shipping applications and websites end to end","Experimenting with operating systems, OpenWrt and network engineering","Researching data protection and secure system design"]}],
- "skills":{"Applications":["Android apps","Utilities","Automation"],"Web":["Frontend","Backend & APIs","Deployment"],"Systems":["Linux","OpenWrt","Custom firmware"],"Networking":["WiFi","SSH","Routing"],"Security":["Data protection","Hardening","Research"]},
- "certs":[],
- "blog":[]
+ "profile":{"badge":"Available for New Projects","name":"Your Name","roles":["Full Stack Developer","Application Developer","Creative Engineer"],
+  "bio":"Write a short professional summary here: your background, the technologies you work with, and the kind of products you enjoy building. Replace this placeholder text with your own words.",
+  "stats":[["00+","Projects Completed"],["00+","Years Experience"],["XX","Core Technology"]]},
+ "experience":[
+  {"when":"20XX – Present","title":"Job Title","org":"Company Name · Location","pts":["Describe a key responsibility or achievement here","Describe another result, ideally with measurable impact","Mention the technologies or tools you used"]},
+  {"when":"20XX – 20XX","title":"Previous Job Title","org":"Company Name · Location","pts":["Describe a key responsibility or achievement here","Describe another result or project you delivered"]},
+  {"when":"20XX – 20XX","title":"Internship / Training","org":"Organization Name · Location","pts":["Describe what you learned and contributed here"]}],
+ "skills":{"Frontend":["Skill 1","Skill 2","Skill 3"],"Backend":["Skill 1","Skill 2","Skill 3"],"Database":["Skill 1","Skill 2"],"Programming":["Language 1","Language 2","Language 3"],"Tools":["Tool 1","Tool 2","Tool 3"],"Soft Skills":["Skill 1","Skill 2","Skill 3"]},
+ "certs":[
+  {"cat":"Programming","title":"Certification Title 1","by":"Issuer Name","year":"20XX"},
+  {"cat":"Programming","title":"Certification Title 2","by":"Issuer Name","year":"20XX"},
+  {"cat":"Cybersecurity","title":"Certification Title 3","by":"Issuer Name","year":"20XX"},
+  {"cat":"Networking","title":"Certification Title 4","by":"Issuer Name","year":"20XX"},
+  {"cat":"Other","title":"Certification Title 5","by":"Issuer Name","year":"20XX"}],
+ "blog":[
+  {"title":"Article Title 1","text":"A short description of your first article goes here.","url":"#"},
+  {"title":"Article Title 2","text":"A short description of your second article goes here.","url":"#"},
+  {"title":"Article Title 3","text":"A short description of your third article goes here.","url":"#"}]
 }
