@@ -53,7 +53,7 @@ footer{text-align:center;color:#555;padding:30px;font-size:.85rem}
 <section id="projects"><h3>Projects</h3><p class="mut">Synced live from GitHub.</p><div id="pj"></div></section>
 <section id="contact"><h3>Let's build together</h3><p class="mut">Have an idea or a project in mind? Reach out.</p><br>
 <a class="btn" href="mailto:ainnefasarome@gmail.com">Email</a><a class="btn" href="https://t.me/ainnanefasarome">Telegram</a>
-<a class="btn" href="https://github.com/ainnanefasarome">GitHub</a></section>
+<a class="btn" href="https://github.com/ainnefasarome">GitHub</a></section>
 <footer>© Banghans — Hans Developer</footer>
 <script>
 // Intro: wireframe globe
@@ -80,7 +80,7 @@ L.onpointerdown=e=>{d=1;L.setPointerCapture(e.pointerId)};
 L.onpointermove=e=>{if(!d)return;const r=C.getBoundingClientRect(),n=Math.max(-1.2,Math.min(1.2,Math.atan2(r.left+r.width/2-e.clientX,e.clientY-r.top)));v=n-a;a=n};
 L.onpointerup=L.onpointercancel=()=>d=0;
 // GitHub projects
-const U='ainnanefasarome';
+const U='ainnefasarome';
 (async()=>{let j;try{j=await(await fetch('https://api.github.com/users/'+U+'/repos?sort=updated&per_page=30')).json();localStorage.pj=JSON.stringify(j)}catch(e){j=JSON.parse(localStorage.pj||'[]')}
 if(!Array.isArray(j)||!j.length){$('pj').innerHTML='<p class="mut">Projects will appear here.</p>';return}
 $('pj').innerHTML=j.filter(r=>!r.fork&&r.name!=U+'.github.io').map(r=>`<a href="${r.html_url}" target="_blank"><b>${r.name}</b><p class="mut">${r.description||'No description yet'}</p><small>${r.language||''} ${r.stargazers_count?'★ '+r.stargazers_count:''}</small></a>`).join('')})();
