@@ -84,4 +84,4 @@ const U='ainnefasarome';
 (async()=>{let j;try{j=await(await fetch('https://api.github.com/users/'+U+'/repos?sort=updated&per_page=30')).json();localStorage.pj=JSON.stringify(j)}catch(e){j=JSON.parse(localStorage.pj||'[]')}
 if(!Array.isArray(j)||!j.length){$('pj').innerHTML='<p class="mut">Projects will appear here.</p>';return}
 $('pj').innerHTML=j.filter(r=>!r.fork&&r.name!=U+'.github.io').map(r=>`<a href="${r.html_url}" target="_blank"><b>${r.name}</b><p class="mut">${r.description||'No description yet'}</p><small>${r.language||''} ${r.stargazers_count?'★ '+r.stargazers_count:''}</small></a>`).join('')})();
-</script></body></html>
+</script><link rel="stylesheet" href="site.css"><script src="site.js"></script></body></html>

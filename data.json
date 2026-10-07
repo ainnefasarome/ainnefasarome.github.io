@@ -1,0 +1,6 @@
+{
+ "experience":[{"when":"Ongoing","title":"Independent Developer","org":"Self-directed","pts":["Designing and shipping applications and websites end to end","Experimenting with operating systems, OpenWrt and network engineering","Researching data protection and secure system design"]}],
+ "skills":{"Applications":["Android apps","Utilities","Automation"],"Web":["Frontend","Backend & APIs","Deployment"],"Systems":["Linux","OpenWrt","Custom firmware"],"Networking":["WiFi","SSH","Routing"],"Security":["Data protection","Hardening","Research"]},
+ "certs":[],
+ "blog":[]
+}
